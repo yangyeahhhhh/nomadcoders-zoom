@@ -14,7 +14,7 @@ socket.addEventListener("open", () => {
 
 socket.addEventListener("message", (message) => {
     const li = document.createElement("li");
-    li.innerText = message.data;
+    li.innerText = `You: ${input.value}`
     messageList.append(li);
 });
 
