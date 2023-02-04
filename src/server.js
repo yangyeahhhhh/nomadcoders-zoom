@@ -18,8 +18,11 @@ wsServer.on("connection", (socket) => {
         socket.join(roomName);
         done();
         socket.to(roomName).emit("welcome");
-    })
-})
+    });
+    socket.on("offer", (offer, roomName) => {
+        socket.to(roomName).emit("offer", offer);
+    });
+});
 
 const handeleListen = () => console.log(`Listening on http://localhost:3001`);
 httpServer.listen(3001, handeleListen);
